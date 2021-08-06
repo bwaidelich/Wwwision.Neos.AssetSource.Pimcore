@@ -1,0 +1,15 @@
+#Neos:
+#  Media:
+#    assetSources:
+#      'pimcore':
+#        assetSource: 'Wwwision\Neos\AssetSource\Pimcore\AssetSource\PimcoreAssetSource'
+#        assetSourceOptions:
+#          label: 'Pimcore'
+#          description: 'Pimcore Asset Source'
+#
+#          api:
+#            baseUrl: 'https://pimcore02.lklg.cloud'
+#            endpoint: '<the-pimcore-endpoint>'
+#            apiKey: '<some-api-key>'
+#            additionalConfiguration:
+#              verify: false

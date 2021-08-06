@@ -1,0 +1,32 @@
+{
+    "description": "Pimcore asset source for Neos CMS",
+    "type": "neos-package",
+    "name": "wwwision/neos-assetsource-pimcore",
+    "license": "proprietary",
+    "require": {
+        "php": ">=7.4",
+        "ext-json": "*",
+        "neos/neos": "^7.0",
+        "guzzlehttp/guzzle": "^7.3",
+        "webmozart/assert": "^1.10"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-latest",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Wwwision\\Neos\\AssetSource\\Pimcore\\": "Classes/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Wwwision\\Neos\\AssetSource\\Pimcore\\Tests\\": "Classes"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Wwwision.Neos.AssetSource.Pimcore"
+        }
+    }
+}
