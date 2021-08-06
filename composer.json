@@ -2,7 +2,7 @@
     "description": "Pimcore asset source for Neos CMS",
     "type": "neos-package",
     "name": "wwwision/neos-assetsource-pimcore",
-    "license": "proprietary",
+    "license": "GPL-3.0-or-later",
     "require": {
         "php": ">=7.4",
         "ext-json": "*",
