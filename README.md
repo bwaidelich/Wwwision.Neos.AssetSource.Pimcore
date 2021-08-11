@@ -1,6 +1,6 @@
 # Wwwision.Neos.AssetSource.Pimcore
 
-Pimcore asset source for Neos CMS
+[Pimcore](https://pimcore.com/) asset source for Neos CMS
 
 ## Setup
 
@@ -67,3 +67,18 @@ Neos:
     assetSources:
       'neos': ~
 ```
+
+## Pimcore
+
+For the Pimcore API to work with this package, the following steps are required
+
+### Active GraphQL configuration
+
+A Datahub GraphQL configuration is required with *Read* access to the `Assset`, `Asset Folder` and `Asset Listing` types at least
+
+### Image Thumbnail configurations
+
+Two image thumbnail configurations should be created, in order to provide a good UX in the Neos backend:
+
+* `thumbnail` with a *Contain* transformation of 250x250 px
+* `preview` with a *Cover* transformation of 1200x1200 px
