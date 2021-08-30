@@ -47,7 +47,11 @@ final class AssetFilter
             $constraints[] = ['type' => $this->assetType->toString()];
         }
         if ($this->searchTerm !== null) {
-            $constraints[] = ['filename' => ['$like' => '%' . $this->searchTerm . '%']];
+            $constraints[] = ['$or' => [
+                ['id' => $this->searchTerm],
+                ['filename' => ['$like' => '%' . $this->searchTerm . '%']],
+                ['path' => ['$like' => '%' . $this->searchTerm . '%']],
+            ]];
         }
         if (\count($constraints) === 1) {
             return $constraints[0];

@@ -15,13 +15,13 @@ class AssetFilterTest extends TestCase
         return [
             [$filter, ['type' => ['$not' => 'folder']]],
             [$filter->forAssetType(AssetType::ALL()), ['type' => ['$not' => 'folder']]],
-            [$filter->forSearchTerm('foo'), ['$and' => [['type' => ['$not' => 'folder']], ['filename' => ['$like' => '%foo%']]]]],
+            [$filter->forSearchTerm('foo'), ['$and' => [['type' => ['$not' => 'folder']], ['$or' => [['id' => 'foo'], ['filename' => ['$like' => '%foo%']], ['path' => ['$like' => '%foo%']]]]]]],
             [$filter->forAssetType(AssetType::AUDIO()), ['type' => 'audio']],
             [$filter->forAssetType(AssetType::DOCUMENT()), ['type' => 'document']],
             [$filter->forAssetType(AssetType::IMAGE()), ['type' => 'image']],
             [$filter->forAssetType(AssetType::VIDEO()), ['type' => 'video']],
-            [$filter->forSearchTerm('search term')->forAssetType(AssetType::IMAGE()), ['$and' => [['type' => 'image'], ['filename' => ['$like' => '%search term%']]]]],
-            [$filter->forSearchTerm('search term')->forAssetType(AssetType::ALL()), ['$and' => [['type' => ['$not' => 'folder']], ['filename' => ['$like' => '%search term%']]]]],
+            [$filter->forSearchTerm('search term')->forAssetType(AssetType::IMAGE()), ['$and' => [['type' => 'image'], ['$or' => [['id' => 'search term'], ['filename' => ['$like' => '%search term%']], ['path' => ['$like' => '%search term%']]]]]]],
+            [$filter->forSearchTerm('search term')->forAssetType(AssetType::ALL()), ['$and' => [['type' => ['$not' => 'folder']], ['$or' => [['id' => 'search term'], ['filename' => ['$like' => '%search term%']], ['path' => ['$like' => '%search term%']]]]]]],
         ];
     }
 
