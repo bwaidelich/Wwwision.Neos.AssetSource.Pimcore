@@ -6,7 +6,7 @@
     "require": {
         "php": ">=7.4",
         "ext-json": "*",
-        "neos/neos": "^7.0",
+        "neos/neos": "^7.0 || ^8.0",
         "guzzlehttp/guzzle": "^7.3",
         "webmozart/assert": "^1.10"
     },
