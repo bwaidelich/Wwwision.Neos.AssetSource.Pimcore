@@ -17,11 +17,15 @@ final class PimcoreClient
     private Client $httpClient;
     private UriInterface $baseUrl;
     private string $endpoint;
+    private string $thumbnailConfigurationName;
+    private string $previewThumbnailConfigurationName;
 
-    public function __construct(UriInterface $baseUrl, string $endpoint, string $apiKey, array $additionalConfiguration)
+    public function __construct(UriInterface $baseUrl, string $endpoint, string $apiKey, array $additionalConfiguration, string $thumbnailConfigurationName = null, string $previewThumbnailConfigurationName = null)
     {
         $this->baseUrl = $baseUrl;
         $this->endpoint = $endpoint;
+        $this->thumbnailConfigurationName = $thumbnailConfigurationName ?? 'thumbnail';
+        $this->previewThumbnailConfigurationName = $previewThumbnailConfigurationName ?? 'preview';
         $config = Arrays::arrayMergeRecursiveOverrule($additionalConfiguration, ['base_uri' => $this->baseUrl, 'headers' => ['X-API-Key' => $apiKey]]);
         $this->httpClient = new Client($config);
     }
@@ -92,8 +96,8 @@ final class PimcoreClient
           filename
           filesize
           fullpath
-          fullpath_thumbnail: fullpath(thumbnail: "thumbnail")
-          fullpath_preview: fullpath(thumbnail: "preview")
+          fullpath_thumbnail: fullpath(thumbnail: "' . $this->thumbnailConfigurationName . '")
+          fullpath_preview: fullpath(thumbnail: "' . $this->previewThumbnailConfigurationName . '")
           mimetype
           metadata {
             name

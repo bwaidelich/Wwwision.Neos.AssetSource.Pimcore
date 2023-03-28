@@ -29,7 +29,7 @@ final class PimcoreAssetSource implements AssetSourceInterface
         $this->label = $options['label'] ?? 'Pimcore';
         $this->description = $options['description'] ?? '';
         $apiOptions = $options['api'];
-        $this->client = new PimcoreClient(new Uri($apiOptions['baseUrl']), $apiOptions['endpoint'], $apiOptions['apiKey'], $apiOptions['additionalConfiguration'] ?? []);
+        $this->client = new PimcoreClient(new Uri($apiOptions['baseUrl']), $apiOptions['endpoint'], $apiOptions['apiKey'], $apiOptions['additionalConfiguration'] ?? [], $apiOptions['thumbnailConfigurationName'] ?? null, $apiOptions['previewThumbnailConfigurationName'] ?? null);
         $this->importedAssetRepository = new ImportedAssetRepository();
     }
 

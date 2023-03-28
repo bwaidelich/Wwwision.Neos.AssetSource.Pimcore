@@ -70,6 +70,20 @@ Two image thumbnail configurations should be created, in order to provide a good
 * `thumbnail` with a *Contain* transformation of 250x250 px
 * `preview` with a *Cover* transformation of 1200x1200 px
 
+Alternatively, the `thumbnailConfigurationName` and/or `previewThumbnailConfigurationName` options can be specified to use different thumbnail configurations:
+
+```yaml
+Neos:
+  Media:
+    assetSources:
+      'pimcore':
+          # ...
+          api:
+            # ...
+            thumbnailConfigurationName: 'gallery-thumbnail'
+            previewThumbnailConfigurationName: 'gallery-full-width'
+```
+
 ## Acknowledgements
 
 The development of this package was generously sponsored by [Marktplatz GmbH - Agentur für Web & App](https://www.marktplatz-agentur.de/).
