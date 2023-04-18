@@ -51,6 +51,7 @@ final class AssetFilter
                 ['id' => $this->searchTerm],
                 ['filename' => ['$like' => '%' . $this->searchTerm . '%']],
                 ['path' => ['$like' => '%' . $this->searchTerm . '%']],
+                ['customSettings' => ['$like' => '%' . $this->searchTerm . '%']],
             ]];
         }
         if (\count($constraints) === 1) {
